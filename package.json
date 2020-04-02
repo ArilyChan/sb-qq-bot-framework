@@ -1,0 +1,19 @@
+{
+  "name": "ari",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cqhttp": "^1.2.0",
+    "glob": "^7.1.6",
+    "interactive-console": "0.0.5"
+  },
+  "devDependencies": {
+    "koishi": "^1.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
