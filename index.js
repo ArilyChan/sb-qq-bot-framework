@@ -1,9 +1,22 @@
-const app = require('./lib/app');
-const commands = require('./lib/commandLoader.js');
-const plugins = require('./lib/pluginLoader.js');
+const path = require('path');
+const appDir = path.dirname(require.main.filename);
+const webServer = require('./lib/WebServer');
 
-commands(app);
-plugins(app);
+const config = require(`${appDir}/config`);
+console.log(config);
+
+const app = require('./lib/Bot')(config.koishi);
+
+const pluginLoader = require('./lib/ContextPluginApply');
+const Loaded = pluginLoader(app, config.contextPlugins);
+// console.log(Loaded.webViews)
+Loaded.webViews.map(v => {
+    console.log(v.name,'installed on',v.path)
+    webServer.use(v.path,v.expressApp)
+})
+webServer.listen(3005,() =>  console.log('Example app listening on port 3005!'))
+
+
 let count = 0;
 let maxTries = 3;
 try {
@@ -16,9 +29,9 @@ try {
             if (count >= maxTries) throw e;
         }
     }
-} catch(e){
-	console.log('Max retries exceed. Quit now.');
-	console.log(e)
+} catch (e) {
+    console.log('Max retries exceed. Quit now.');
+    console.log(e)
 }
 
 
