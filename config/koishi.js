@@ -1,7 +1,7 @@
 module.exports = {
     type: 'ws',
     port: 7070,
-    server: 'http://192.168.123.48:6700',
+    server: 'http://141.193.21.245:6700',
     name: '小阿日',
     commandPrefix: ["!", "！"],
     logFilter: {
