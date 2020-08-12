@@ -28,6 +28,7 @@
     "lodash": "^4.17.19",
     "memorize": "0.0.4",
     "moment": "^2.24.0",
+    "mongoose": "^5.9.28",
     "node-fetch": "^2.6.0",
     "node-osu": "^2.2.0",
     "opsbot": "github:Exsper/Opsbot",
