@@ -41,7 +41,6 @@
     "react-dom": "^16.13.1",
     "react-json-view": "^1.19.1",
     "runtime-npm-install": "^5.0.0",
-    "sbot-otsu": "file:Plugins/arily/sbot-otsu",
     "segment": "^0.1.3",
     "silly-response-bot": "github:Exsper/SillyResponseBot",
     "slugify": "^1.4.4",
