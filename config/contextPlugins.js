@@ -11,11 +11,11 @@ module.exports = [
     },
     {
         for: ContextBuilder((app) => app, 'any'),
-        use: {
+        use: [{
             type: 'local',
             path: 'Plugins/arily/BlackFarts',
             priority: 1,
-        },
+        }],
     },
 ]
 // const any = ContextBuilder((app) => app, 'any');
