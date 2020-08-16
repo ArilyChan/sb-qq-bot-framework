@@ -1,3 +1,6 @@
+const path = require('path');
+const appDir = path.dirname(require.main.filename);
+
 const ContextBuilder = require(`${appDir}/lib/contextBuilder`);
 const PluginLoader = require(`${appDir}/lib/Loader`);
 
