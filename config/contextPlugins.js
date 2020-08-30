@@ -19,9 +19,10 @@ module.exports = [
       path: 'Plugins/arily/BlackFarts',
       priority: 1,
       filter: [(meta) => {
-        const block = meta.$parsed === '吃啥' && meta.groupId === 263668213
+        if (!meta.messageType === 'group') return true
+        const block = (meta.$parsed.prefix !== null) && meta.$parsed.message === '吃啥' && meta.groupId === 263668213
         if (block) meta.$send('去别的群试试吧.')
-        return block
+        return !block
       }]
     }]
   }
