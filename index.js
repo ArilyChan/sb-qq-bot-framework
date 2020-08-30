@@ -1,39 +1,37 @@
-const path = require('path');
-const appDir = path.dirname(require.main.filename);
-const webServer = require('./lib/WebServer');
+const path = require('path')
+const appDir = path.dirname(require.main.filename)
+const webServer = require('./lib/WebServer')
 
-const config = require(`${appDir}/config`);
-console.log(config);
+const config = require(`${appDir}/config`)
+console.log(config)
 
-const app = require('./lib/Bot')(config.koishi);
+const app = require('./lib/Bot')(config.koishi)
 
-const pluginLoader = require('./lib/ContextPluginApply');
-const Loaded = pluginLoader(app, config.contextPlugins);
+const pluginLoader = require('./lib/ContextPluginApply')
+const Loaded = pluginLoader(app, config.contextPlugins)
 // console.log(Loaded.webViews)
 Loaded.webViews.map(v => {
-    console.log(v.name,'installed on',v.path)
-    webServer.use(v.path,v.expressApp)
+  console.log(v.name, 'installed on', v.path)
+  webServer.use(v.path, v.expressApp)
 })
-webServer.listen(3005,() =>  console.log('Example app listening on port 3005!'))
+webServer.listen(3005, () => console.log('Example app listening on port 3005!'))
 
-
-let count = 0;
-let maxTries = 3;
+let count = 0
+const maxTries = 3
 try {
-    while (count++ <= maxTries) {
-        try {
-            app.start()
-        } catch (e) {
-            console.log('⚠️Uncatched Exception!!');
-            console.log(e.stack);
-            if (count >= maxTries) throw e;
-        }
+  while (count++ <= maxTries) {
+    try {
+      app.start()
+    } catch (e) {
+      console.log('⚠️Uncatched Exception!!')
+      console.log(e.stack)
+      if (count >= maxTries) throw e
     }
+  }
 } catch (e) {
-    console.log('Max retries exceed. Quit now.');
-    console.log(e)
+  console.log('Max retries exceed. Quit now.')
+  console.log(e)
 }
-
 
 // app.receiver.on('logger', (scope, message) => {
 //     console.log({ scope, message });
