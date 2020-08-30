@@ -1,7 +1,7 @@
 const path = require('path')
 const appDir = path.dirname(require.main.filename)
 
-// const filters = require('../lib/filters')
+const filters = require('../lib/filters')
 
 const ContextBuilder = require(`${appDir}/lib/contextBuilder`)
 // const PluginLoader = require(`${appDir}/lib/Loader`)
@@ -18,12 +18,12 @@ module.exports = [
       type: 'local',
       path: 'Plugins/arily/BlackFarts',
       priority: 1,
-      filter: [(meta) => {
-        if (!meta.messageType === 'group') return true
-        const block = (meta.$parsed.prefix !== null) && meta.$parsed.message === '吃啥' && meta.groupId === 263668213
-        if (block) meta.$send('去别的群试试吧.')
-        return !block
-      }]
+      filter: [
+        meta => filters.blockGroup(263668213)(meta).then(result => !(!result && ['吃啥', '吃什么', '吃什麼'].includes(meta.$parsed.message) && meta.$parsed.prefix !== null)).then(result => {
+          if (!result) meta.$send('去别的群试试吧.')
+          return result
+        })
+      ]
     }]
   }
 ]
