@@ -13,7 +13,7 @@ cd sb-qq-bot-framework && npm install
 ```javascript
 const contextBuilder = require('sb-qq-bot-framework/lib/contextBuilder.js')
 const appCtx = contextBuilder((app) => app, 'use app as context')
-const userCtx = contextBuilder((app) => app.users, 'use app as context')
+const userCtx = contextBuilder((app) => app.users, 'user context')
 ```
 
 ### plugins
