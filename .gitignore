@@ -4,3 +4,4 @@ node_modules
 .DS_Store
 .DS_Store
 Plugins/arily/BlackFarts/Cabbage/menu/config/db.js
+config/koishi.js
