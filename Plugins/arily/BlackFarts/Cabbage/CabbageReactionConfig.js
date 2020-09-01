@@ -656,6 +656,17 @@ const compileMenu = async ({ storage }) => {
   compiledMenu.push(...all)
   menuCompiled = true
 }
+
+const recipeToString = function (order) {
+  const message = []
+  message.push(`${order.methodOfConsumption || '吃'}${order.name}\n`)
+  if (order.description) message.push(order.description, '\n')
+  if (order.uploader.name) message.push('推荐人: ', order.uploader.name, '\n')
+  if (order.uploader.qq) message.push('qq: ', order.uploader.qq, '\n')
+  if (order.cqImage) message.push(order.cqImage, '\n')
+  return message.join('').trim()
+}
+
 const reciept = async ({ command, meta, storage }) => {
   const [, req] = command
   if (!menuCompiled) await compileMenu({ storage })
@@ -663,18 +674,15 @@ const reciept = async ({ command, meta, storage }) => {
   if (meta.messageType !== 'private') message.push(`[CQ:reply,id=${meta.messageId}]`)
   if (!req) {
     const order = random(compiledMenu)
-    message.push(`${order.methodOfConsumption || '吃'}${order.name}\n`)
-    if (order.cqImage) message.push(order.cqImage, '\n')
+    message.push(recipeToString(order))
     return meta.$send(message.join('').trim())
   } else {
     const filtered = compiledMenu.filter(recipe => recipe.menu.name === req)
     // console.log(filtered)
     if (filtered.length <= 0) return meta.$send('没东西')
     const order = random(filtered)
-    message.push(`${order.methodOfConsumption || '吃'}${order.name}`)
-    if (order.description) message.push(order.description)
-    if (order.cqImage) message.push(order.cqImage)
-    return meta.$send(message.join('\n').trim())
+    message.push(recipeToString(order))
+    return meta.$send(message.join('').trim())
   }
 }
 const refreshMenu = async ({ command, meta, storage }) => {
