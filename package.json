@@ -2,7 +2,7 @@
   "name": "sb-qq-bot-framework",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "export.js",
   "dependencies": {
     "express": "^4.17.1",
     "runtime-npm-install": "^5.0.0",
