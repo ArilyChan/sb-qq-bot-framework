@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "blackfarts": "file:Plugins/arily/Blackfarts",
     "express": "^4.17.1",
     "runtime-npm-install": "^5.0.0",
     "slugify": "^1.4.4",
