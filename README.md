@@ -1,14 +1,4 @@
 # sb qq bot framework
- 
-## 安装
-```javascript
-cd sb-qq-bot-framework && npm install
-```
-复制并修改config/koishi.sample.js为config/koishi.js, 添加或修改需要的参数
-之后大概会将本repo作为依赖提供, 这个是暂时的方式
-
-## 添加插件
-修改config/contextPlugin.js
 
 ### context builder
 ```javascript
