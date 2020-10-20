@@ -1,12 +1,13 @@
 {
   "name": "sb-qq-bot-framework",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "export.js",
   "dependencies": {
     "express": "^4.17.1",
     "glob": "^7.1.6",
     "koishi": "^2.3.2",
+    "koishi-plugin-mongo": "^1.1.0",
     "runtime-npm-install": "^5.0.0",
     "slugify": "^1.4.5"
   },
