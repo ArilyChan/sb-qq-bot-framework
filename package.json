@@ -5,16 +5,16 @@
   "main": "export.js",
   "dependencies": {
     "express": "^4.17.1",
-    "runtime-npm-install": "^5.0.0",
-    "slugify": "^1.4.4",
     "glob": "^7.1.6",
-    "koishi": "^1.12.0"
+    "koishi": "^2.3.2",
+    "runtime-npm-install": "^5.0.0",
+    "slugify": "^1.4.5"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.10.4",
-    "eslint": "^7.7.0",
+    "@babel/preset-react": "^7.12.1",
+    "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
